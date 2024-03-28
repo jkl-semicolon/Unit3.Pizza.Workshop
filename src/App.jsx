@@ -4,11 +4,9 @@ import Pizzas from './Pizzas.jsx';
 import InputForm from './InputForm.jsx';
 
 export const randEmoji = () => {
-  const foodEmojis = ['🍔','🌭','🥙','🍗','🍟','🥖','🥗','🍨','🍲'];
+  const foodEmojis = ['🍔','🌭','🥙','🍗','🍟','🥖','🥗','🍨','🍲','🍎','🥫','🥕','🥬','🍉','🍓','🍈','🧋','☕️','🍵','🍺','🥛','🍩','🧁','🥟','🥠','🍡','🥧','🥞','🍖','🌭','🥑','🥦','🥝','🍊','🍮'];
   return foodEmojis[Math.floor(Math.random() * foodEmojis.length)];
 }
-
-randEmoji();
 
 function App() {
   const [pizzaList, setPizzaList] = useState(
@@ -31,11 +29,11 @@ function App() {
       },
     ]
   );
-
+ 
   return (
     <>
       <h1>Pizza List</h1>
-      <InputForm/>
+      <InputForm pizzaList={pizzaList} setPizzaList={setPizzaList}/>
       {pizzaList.length ? <Pizzas pizzaList={pizzaList}/> : <h3>No Pizzas Yet!</h3>}
     </>
   );
