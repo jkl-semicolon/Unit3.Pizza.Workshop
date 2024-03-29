@@ -4,7 +4,10 @@ import Pizzas from './Pizzas.jsx';
 import InputForm from './InputForm.jsx';
 
 export const randEmoji = () => {
-  const foodEmojis = ['🍔','🌭','🥙','🍗','🍟','🥖','🥗','🍨','🍲','🍎','🥫','🥕','🥬','🍉','🍓','🍈','🧋','☕️','🍵','🍺','🥛','🍩','🧁','🥟','🥠','🍡','🥧','🥞','🍖','🌭','🥑','🥦','🥝','🍊','🍮'];
+  const foodEmojis = ['🍔','🌭','🥙','🍗','🍟','🥖','🥗','🍨','🍲',
+                      '🍎','🥫','🥕','🥬','🍉','🍓','🍈','🧋','☕️',
+                      '🍵','🍺','🥛','🍩','🧁','🥟','🥠','🍡','🥧',
+                      '🥞','🍖','🌭','🥑','🥦','🥝','🍊','🍮','🍪'];
   return foodEmojis[Math.floor(Math.random() * foodEmojis.length)];
 }
 
@@ -29,12 +32,19 @@ function App() {
       },
     ]
   );
+
+  let display;
+  if (pizzaList.length) {
+    display = <Pizzas pizzaList={pizzaList}/>
+  } else {
+    display = <h3>No Pizzas Yet!</h3>
+  };
  
   return (
     <>
       <h1>🍕Pizza List🍕</h1>
       <InputForm pizzaList={pizzaList} setPizzaList={setPizzaList}/>
-      {pizzaList.length ? <Pizzas pizzaList={pizzaList}/> : <h3>No Pizzas Yet!</h3>}
+      {display}
     </>
   );
 };
